@@ -16,6 +16,6 @@ public class MyTaskPlanner extends AppCompatActivity {
     public void onClickUnblock(View v)
     {
         Button button = (Button) v;
-        int x;
+
     }
 }
