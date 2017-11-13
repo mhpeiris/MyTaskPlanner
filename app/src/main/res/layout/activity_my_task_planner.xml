@@ -26,18 +26,9 @@
         android:inputType="text"
         android:id="@+id/task"
         android:layout_marginTop="20dp"
+        android:hint="Enter the task (Work on MyTaskPlanner)"
         />
 
-    <NumberPicker
-        android:id="@+id/numberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/completionTime"
-        android:layout_alignStart="@+id/completionTime"
-        android:layout_below="@+id/completionTime"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="54dp" />
 
     <EditText
         android:id="@+id/completionTime"
@@ -48,23 +39,9 @@
         android:layout_toLeftOf="@+id/add_plus_btn"
         android:layout_toStartOf="@+id/add_plus_btn"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:hint="Time it will take in Hours"/>
 
-    <NumberPicker
-        android:id="@+id/numberPicker2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/numberPicker"
-        android:layout_toEndOf="@+id/numberPicker"
-        android:layout_toRightOf="@+id/numberPicker" />
-
-    <NumberPicker
-        android:id="@+id/numberPicker3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/numberPicker2"
-        android:layout_toEndOf="@+id/numberPicker2"
-        android:layout_toRightOf="@+id/numberPicker2" />
 
     <TextView
         android:id="@+id/result"
@@ -82,9 +59,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/add_plus_btn"
-        android:layout_toEndOf="@+id/numberPicker"
-        android:layout_toRightOf="@+id/numberPicker"
+
         android:text="Go To schedule" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/completionTime"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="113dp"
+        android:layout_toEndOf="@+id/bt_launch_activity"
+        android:layout_toRightOf="@+id/bt_launch_activity"
+        android:onClick="setDate"
+        android:text="Select Date" />
+
+    <TextView
+        android:id="@+id/date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="24dp"
+        android:text="01/01/01" />
 
 
 </RelativeLayout>
