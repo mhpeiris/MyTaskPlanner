@@ -23,7 +23,7 @@ public class MyTaskPlanner extends AppCompatActivity {
     FloatingActionButton addTaskBtn;
     Button nextPageBtn;
     String taskString;
-    int timeInt;
+    double timeInt;
     String dateString;
     DatabaseHelper mDatabaseHelper;
     private Button goBackBtn;
@@ -48,7 +48,7 @@ public class MyTaskPlanner extends AppCompatActivity {
 
             public void onClick(View v) {
                 taskString = the_task.getText().toString();
-                timeInt = Integer.parseInt(the_time.getText().toString());
+                timeInt = Double.parseDouble(the_time.getText().toString());
                 //Create the task
                  task = new Task(taskString, timeInt, dateString);
                 AddData(task);

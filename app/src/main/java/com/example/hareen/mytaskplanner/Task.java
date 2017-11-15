@@ -8,10 +8,10 @@ public class Task {
 
 
     public String task;
-    public int completionTime;
+    public double completionTime;
     public String date;
 
-    public Task(String mTask, int mCompletionTime, String mDate){
+    public Task(String mTask, double mCompletionTime, String mDate){
         super();
 
         task = mTask;
@@ -23,7 +23,7 @@ public class Task {
         return task;
     }
 
-    public int getCompletionTime() {
+    public double getCompletionTime() {
         
         return completionTime;
     }

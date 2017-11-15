@@ -39,7 +39,7 @@
         android:layout_toLeftOf="@+id/add_plus_btn"
         android:layout_toStartOf="@+id/add_plus_btn"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="Time it will take in Hours"/>
 
 

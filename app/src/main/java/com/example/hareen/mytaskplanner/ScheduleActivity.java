@@ -12,6 +12,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class ScheduleActivity extends AppCompatActivity {
@@ -52,11 +54,14 @@ public class ScheduleActivity extends AppCompatActivity {
         String dateString = date.toString();
         Cursor data = mDatabaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();
+        ArrayList<Cursor> tempList = new ArrayList<>();
+
         while (data.moveToNext()) {
-           //If statement to check if its the same day
             if (dateString.equals(data.getString(2)))
-            listData.add(data.getString(1));
+               listData.add(data.getString(1));
         }
+
+
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         mListView.setAdapter(adapter);
     }
