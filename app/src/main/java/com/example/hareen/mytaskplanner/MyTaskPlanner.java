@@ -20,7 +20,6 @@ public class MyTaskPlanner extends AppCompatActivity {
 
     EditText the_task;
     EditText the_time;
-    TextView show_task;
     FloatingActionButton addTaskBtn;
     Button nextPageBtn;
     String taskString;
@@ -40,7 +39,6 @@ public class MyTaskPlanner extends AppCompatActivity {
 
         the_task = (EditText) findViewById(R.id.task);
         the_time = (EditText) findViewById(R.id.completionTime);
-        show_task = (TextView) findViewById(R.id.result);
 
         addTaskBtn = (FloatingActionButton) findViewById(R.id.add_plus_btn);
         mDatabaseHelper = new DatabaseHelper(this);
@@ -51,10 +49,11 @@ public class MyTaskPlanner extends AppCompatActivity {
             public void onClick(View v) {
                 taskString = the_task.getText().toString();
                 timeInt = Integer.parseInt(the_time.getText().toString());
-                show_task.setText(taskString);
                 //Create the task
                  task = new Task(taskString, timeInt, dateString);
                 AddData(task);
+                Toast.makeText(MyTaskPlanner.this, "The task has been added!",
+                        Toast.LENGTH_LONG).show();
             }
         });
 
