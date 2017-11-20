@@ -1,7 +1,9 @@
 package com.example.hareen.mytaskplanner;
 
 
+import android.content.Intent;
 import android.database.Cursor;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,8 +25,10 @@ import java.util.Comparator;
 public class ScheduleActivity extends AppCompatActivity {
 
     private Button goBackBtn;
+    private TextView dateText;
     DatabaseHelper mDatabaseHelper;
     private ListView mListView;
+    FloatingActionButton addTaskBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,18 +36,29 @@ public class ScheduleActivity extends AppCompatActivity {
 
         goBackBtn = (Button) findViewById(R.id.bt_go_back);
         mListView = (ListView) findViewById(R.id.listView);
+        dateText = (TextView) findViewById(R.id.textView);
         mDatabaseHelper = new DatabaseHelper(this);
         goBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+            launchActivity();
+            }
+        });
+        addTaskBtn = (FloatingActionButton) findViewById(R.id.add_btn);
+        addTaskBtn.setOnClickListener(new View.OnClickListener() {
 
-                finish();
+            public void onClick(View v) {
+                startActivity(new Intent(ScheduleActivity.this,MyTaskPlanner.class));
             }
         });
         populateListView();
 
     }
+    private void launchActivity() {
 
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
+    }
     public void populateListView(){
         Calendar calendar;
 
@@ -52,6 +71,7 @@ public class ScheduleActivity extends AppCompatActivity {
         StringBuilder date = new StringBuilder().append(day).append("/")
                 .append(month+1).append("/").append(year);
         String dateString = date.toString();
+        dateText.setText(dateString);
         Cursor data = mDatabaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Cursor> tempList = new ArrayList<>();

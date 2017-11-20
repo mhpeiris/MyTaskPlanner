@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@android:color/black"
+
     tools:context="com.example.hareen.mytaskplanner.MyTaskPlanner">
 
     <android.support.design.widget.FloatingActionButton
@@ -18,16 +19,18 @@
         android:layout_marginBottom="18dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:src="@drawable/add_plus_fab" />
+
+        android:src="@drawable/add_plus_fab"
+        app:backgroundTint="@android:color/holo_green_light"
+        app:fabSize="normal" />
 
     <android.support.design.widget.TextInputEditText
+        android:id="@+id/task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:id="@+id/task"
         android:layout_marginTop="20dp"
         android:hint="Enter the task (Work on MyTaskPlanner)"
-        />
+        android:inputType="text" />
 
 
     <EditText
@@ -39,8 +42,8 @@
         android:layout_toLeftOf="@+id/add_plus_btn"
         android:layout_toStartOf="@+id/add_plus_btn"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Time it will take in Hours"/>
+        android:hint="Completion time (Hours)"
+        android:inputType="numberDecimal" />
 
 
     <Button
@@ -48,19 +51,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/add_plus_btn"
-
         android:text="Go To schedule" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/completionTime"
+        android:layout_alignStart="@+id/completionTime"
         android:layout_below="@+id/completionTime"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="113dp"
-        android:layout_toEndOf="@+id/bt_launch_activity"
-        android:layout_toRightOf="@+id/bt_launch_activity"
+        android:layout_marginTop="26dp"
         android:onClick="setDate"
         android:text="Select Date" />
 

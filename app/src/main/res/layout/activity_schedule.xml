@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.example.hareen.mytaskplanner.MyTaskPlanner">
 
 
@@ -16,14 +17,46 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Add Another Task" />
-
+        android:text="REFRESH" />
+    <View
+        android:layout_height="match_parent"
+        android:layout_width="1dp"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/view" />
     <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/bt_go_back"
+        android:animationCache="true"
+        android:background="@android:color/transparent"
+        android:drawSelectorOnTop="false"
         android:listSelector="#0f0"
-        android:id="@+id/listView"/>
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="2.0sp"
+      />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/add_plus_fab" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listView"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_toEndOf="@+id/view"
+        android:layout_toRightOf="@+id/view" />
 
 </RelativeLayout>
