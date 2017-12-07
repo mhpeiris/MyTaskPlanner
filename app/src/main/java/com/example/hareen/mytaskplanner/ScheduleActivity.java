@@ -28,7 +28,7 @@ public class ScheduleActivity extends AppCompatActivity {
     private TextView dateText;
     DatabaseHelper mDatabaseHelper;
     private ListView mListView;
-    FloatingActionButton addTaskBtn;
+    private FloatingActionButton addTaskBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,8 @@ public class ScheduleActivity extends AppCompatActivity {
             launchActivity();
             }
         });
+
+        //Add a task  -  using Intent to start MyTaskPlanner activity
         addTaskBtn = (FloatingActionButton) findViewById(R.id.add_btn);
         addTaskBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -55,7 +57,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     }
     private void launchActivity() {
-
+        //Intent used to refresh the page
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
@@ -71,11 +73,12 @@ public class ScheduleActivity extends AppCompatActivity {
         StringBuilder date = new StringBuilder().append(day).append("/")
                 .append(month+1).append("/").append(year);
         String dateString = date.toString();
+        //Get todays date
         dateText.setText(dateString);
         Cursor data = mDatabaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();
-        ArrayList<Cursor> tempList = new ArrayList<>();
 
+        //Check if the same date
         while (data.moveToNext()) {
             if (dateString.equals(data.getString(2)))
                listData.add(data.getString(1));

@@ -11,6 +11,7 @@ public class Task {
     public double completionTime;
     public String date;
 
+    //Constructor
     public Task(String mTask, double mCompletionTime, String mDate){
         super();
 
@@ -18,6 +19,7 @@ public class Task {
         completionTime = mCompletionTime;
         date = mDate;
     }
+
 
     public String getTask() {
         return task;

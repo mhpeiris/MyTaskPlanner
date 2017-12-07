@@ -19,20 +19,17 @@ import java.util.Calendar;
 
 public class MyTaskPlanner extends AppCompatActivity {
 
-    EditText the_task;
-    EditText the_time;
-    FloatingActionButton addTaskBtn;
-    Button nextPageBtn;
-    String taskString;
+    private EditText the_task, the_time;
+    private FloatingActionButton addTaskBtn;
+    private Button nextPageBtn;
     double timeInt;
-    String dateString;
+    private String dateString, taskString;
     DatabaseHelper mDatabaseHelper;
-    private Button goBackBtn;
-    private DatePicker datePicker;
     private Calendar calendar;
     private TextView dateView;
     private int year, month, day;
     private Task task;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
